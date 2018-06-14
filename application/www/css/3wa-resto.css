@@ -21,11 +21,11 @@ a:hover
 body
 {
     /* structure */
-    border-top: 1.5em solid #EF4036;
+    border-top: 1.5em solid #846361;
     padding: 1em 5em;
 
     /* presentation */
-    font-family: 'Karla', sans-serif;
+    font-family: 'Dosis', sans-serif;   
 }
 
 fieldset
@@ -65,7 +65,7 @@ footer .fa-heart
 h1
 {
     color: #EF4036;
-    font-family: 'Oleo Script Swash Caps', cursive;
+    font-family: 'Amatic SC', cursive;
     letter-spacing: 0.15em;
     text-align: center;
 }
