@@ -8,7 +8,7 @@
     <caption>Carte du restaurant</caption>
     <tbody>
         <?php foreach ($products as $product): ?> <tr>
-        	<td><img src="<?= $wwwUrl ?>/images/meals/<?= $product['photo']; ?>" alt="<?= $product["name"]; ?>"> </td>
+        	<td><img src="<?= $wwwUrl?>/images/meals/<?= $product['image']; ?>" alt="<?= $product["name"]; ?>"> </td>
         	<td>
         		<h2><?= $product["name"]; ?></h2>
         		<p><?= $product["description"]; ?></p>

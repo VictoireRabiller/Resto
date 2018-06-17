@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 14 Juin 2018 à 10:49
+-- Généré le :  Dim 17 Juin 2018 à 17:42
 -- Version du serveur :  5.7.22-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.30-0ubuntu0.16.04.1
 
@@ -23,10 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `bookingbooking`
+-- Structure de la table `booking`
 --
 
-CREATE TABLE `bookingbooking` (
+CREATE TABLE `booking` (
   `id` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `seat_number` int(11) NOT NULL,
@@ -79,8 +79,17 @@ CREATE TABLE `product` (
   `image` varchar(255) NOT NULL,
   `is_active` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
-  `update_at` datetime NOT NULL
+  `update_at` datetime NOT NULL,
+  `type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `product`
+--
+
+INSERT INTO `product` (`id`, `name`, `description`, `priceHT`, `tax`, `stock`, `image`, `is_active`, `created_at`, `update_at`, `type`) VALUES
+(1, 'Bacon Burger', 'miam miam', 10, 10, 100, 'bacon_cheeseburger.jpg', 1, '2018-06-16 00:00:00', '2018-06-16 00:00:00', ''),
+(2, 'Bagel Thon', 'pour ceux qui n\'aime que le poisson !', 9, 10, 130, 'bagel_thon.jpg', 1, '2018-06-15 00:00:00', '2018-06-16 00:00:00', 'burger');
 
 -- --------------------------------------------------------
 
@@ -108,9 +117,9 @@ CREATE TABLE `user` (
 --
 
 --
--- Index pour la table `bookingbooking`
+-- Index pour la table `booking`
 --
-ALTER TABLE `bookingbooking`
+ALTER TABLE `booking`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -142,9 +151,9 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT pour la table `bookingbooking`
+-- AUTO_INCREMENT pour la table `booking`
 --
-ALTER TABLE `bookingbooking`
+ALTER TABLE `booking`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `order`
@@ -160,7 +169,7 @@ ALTER TABLE `order_line`
 -- AUTO_INCREMENT pour la table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `user`
 --

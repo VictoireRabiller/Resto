@@ -72,7 +72,7 @@ h1
 h1 a,
 h1 a:hover
 {
-    color: inherit;
+    color: /*inherit*/black;
 }
 h1 img
 {
@@ -86,7 +86,7 @@ h2
     margin: 1.5em 0;
 
     /* presentation */
-    color: #1E593B;
+    color: /*#1E593B*/black;
 }
 
 html
