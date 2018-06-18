@@ -1,18 +1,23 @@
 <?php
-// include '../models/Abstract.class.php';
-// include '../models/Product.class.php';
+
 
 class HomeController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
         // die('hello');
-                $session = new UserSession();
-        $products = new Product (new Database());
-        return [
-            "products"=>$products->findAllProducts()
-        ];
-    
+        $productModel = new ProductModel();
+
+        $productList = $productModel->getAllProducts();
+        // $tools = new Tools();
+        // $tools->pre($productList);
+        // ou
+        // Tools::pre($productList);
+        // exit;
+
+        return ['products' => $productList];
+        
+
     	/*
     	 * Méthode appelée en cas de requête HTTP GET
     	 *

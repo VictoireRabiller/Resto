@@ -13,7 +13,10 @@
         		<h2><?= $product["name"]; ?></h2>
         		<p><?= $product["description"]; ?></p>
         	</td>
-        	<td><?= $product["priceHT"]; ?>€+tva</td>
+        	<td>
+            <?php $priceTTC = Tools::getPriceTTC($product["priceHT"],$product["tax"]) ?>
+            <?= $formattedPriceTTC = number_format($priceTTC, 2, ","," ") ?> €
+            </td>
         </tr>
     	<?php endforeach; ?>
     </tbody>

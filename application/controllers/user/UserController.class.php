@@ -1,10 +1,18 @@
 <?php
 
-class TestController
+class UserController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
-        // die('hello');
+        $userModel = new UserModel();
+
+        $user = $userModel->getUser();
+      
+        // Tools::pre($user);
+        // exit;
+
+        return ['user' => $user];
+        
         
     	/*
     	 * Méthode appelée en cas de requête HTTP GET
@@ -12,11 +20,6 @@ class TestController
     	 * L'argument $http est un objet permettant de faire des redirections etc.
     	 * L'argument $queryFields contient l'équivalent de $_GET en PHP natif.
     	 */
-        $productModel = new ProductModel();
-
-        $productList = $productModel->getAllProducts();
-
-        return ['products' => $productList];
     }
 
     public function httpPostMethod(Http $http, array $formFields)

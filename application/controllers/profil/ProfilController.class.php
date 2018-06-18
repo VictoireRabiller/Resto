@@ -1,10 +1,20 @@
 <?php
 
-class TestController
+class ProfilController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
-        // die('hello');
+        $profilModel = new ProfilModel();
+
+        $profil = $profilModel->getUser();
+        // $tools = new Tools();
+        // $tools->pre($productList);
+        // ou
+        // Tools::pre($productList);
+        // exit;
+
+        return ['profil' => $profil];
+        
         
     	/*
     	 * Méthode appelée en cas de requête HTTP GET
