@@ -17,20 +17,27 @@ class RegisterController
     public function httpPostMethod(Http $http, array $formFields)
     {
     	
+         // var_dump($formFields);   
 
-        $user = [];
+        $userModel = new UserModel();
 
-        $user['firstname'] = $_POST['firstname'];
-        $user['lastname'] = $_POST['lastname'];
-        $user['birthday'] = $_POST['birthday'];
-        $user['email'] = $_POST['email'];
-        $user['password'] = $_POST['password'];
-        $user['address'] = $_POST['address'];
-        $user['zipcode'] = $_POST['zipcode'];
-        $user['city'] = $_POST['city'];
-        $user['phone'] = $_POST['phone'];
-        $user['created_at'] = $_POST['created_at'];
-        $user['updated_at'] = $_POST['updated_at'];
+        $userModel->createUser($formFields);
+
+        $http->redirectTo('login');
+
+        // $user = [];
+
+        // $user['firstname'] = $_POST['firstname'];
+        // $user['lastname'] = $_POST['lastname'];
+        // $user['birthday'] = $_POST['birthday'];
+        // $user['email'] = $_POST['email'];
+        // $user['password'] = $_POST['password'];
+        // $user['address'] = $_POST['address'];
+        // $user['zipcode'] = $_POST['zipcode'];
+        // $user['city'] = $_POST['city'];
+        // $user['phone'] = $_POST['phone'];
+        // $user['created_at'] = $_POST['created_at'];
+        // $user['updated_at'] = $_POST['updated_at'];
 
         
 
