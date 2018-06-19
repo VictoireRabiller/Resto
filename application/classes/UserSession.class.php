@@ -1,45 +1,34 @@
 <?php
-class UserModel
+class UserSession
 {
 
-	public function __construct()
+	function start()
 	{
 		session_start();
 		
 	}
 		
-    public function createUser($id, $firstName, $lastName, $email)
-    {
-        $_SESSION['user'] =
-        [
-            'id'        => $id,
-            'FirstName' => $firstName,
-            'LastName'  => $lastName,
-            'Email'     => $email
-        ];
-    }
-  
-    public function getEmail()
-    {
-        $_SESSION['user']['Email'];
-    }
-   
-
-
-    public function getFirstName()
-    {
-        $_SESSION['user']['FirstName'];
-    }
-    
-      
-    public function getLastName()
-    {
-        $_SESSION['user']['LastName'];
+    function getUser() {
+         return UserModel::getUserById($_SESSION['user_id']);
     }
 
-    public function getUserId()
-    {
-        $_SESSION['user']['id'];
+    function isConnected() {
+
+        if (empty($_SESSION['user_id'])) {
+            return false;
+        } else {
+
+            return true;
+        }
     }
+
+    function connect($user) {
+        $_SESSION['user_id'] = $user['id'];
+    }
+
+    function logout() {
+        session_destroy();
+    }
+
 	
 }

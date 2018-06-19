@@ -1,4 +1,4 @@
-git p<?php
+<?php
 
 interface InterceptingFilter
 {

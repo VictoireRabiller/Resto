@@ -35,31 +35,28 @@
 <!-- Interface utilisateur -->
 <nav class="user-interface">
     <ul class="link-list">
-        
-        <?php if (isset($_SESSION['user_id'])): ?>
-            
         <?php
-            
-          $user= UserModel::getUserById($_SESSION['user_id']);
-        
+        $userSession = new UserSession();
         ?>
-
-        <li>Bonjour <?= $me['firstname'] ?> <?= $me['lastname'] ?></li>
-
-        <li class="layout-right"><a class="button button-primary" href="<?= $requestUrl ?>/logout">Se déconnecter</a></li>
+        <?php if ($userSession->isConnected()): ?>
+            <?php
+                $user = $userSession->getUser();
+            ?>
+            <li>Bonjour <?= $user['firstname']?> <?= $user['lastname'] ?>  </li> 
 
         <?php else: ?>
+            
+            <li class="layout-right"><a class="button button-primary"  href="<?= $requestUrl ?>/login">Se connecter</a></li>
+            
+        <?php endif ?>
+        <li class="layout-right"><a class="button button-primary" href="<?= $requestUrl ?>/logout">Se déconnecter</a></li>
 
         <li><a class="button button-primary" href="<?= $requestUrl ?>/register">Créer un compte</a></li>
-                    
-        <li class="layout-right"><a class="button button-primary" href="<?= $requestUrl ?>/login">S'identifier</a></li>
-
-        <?php endif; ?>
-                    
     </ul>
-
 </nav>
-
+   
+                    
+        
 <main>
     <!-- Affichage du template lié à la vue -->
     <?php include $this->viewData['template']; ?>

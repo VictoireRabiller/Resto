@@ -267,3 +267,9 @@ html
 {
     text-transform: uppercase;
 }
+
+ul{
+
+    list-style-type: none;
+
+}

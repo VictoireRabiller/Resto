@@ -43,9 +43,9 @@ class LoginController
             return ['errorMessage' => "Mot passe incorrect"]; 
         } 
 
-        $_SESSION['user_id'] = $user['id'];
+        $userSession = new UserSession();
+        $userSession->connect($user);
         
-
         $http->redirectTo('');
 
      
