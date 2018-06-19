@@ -97,3 +97,9 @@
 {
     resize: none;
 }
+
+
+
+select{
+    width: 100px;
+}

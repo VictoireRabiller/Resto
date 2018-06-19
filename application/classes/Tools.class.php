@@ -14,6 +14,7 @@ class Tools {
 
 	}
 
-
-
+	public static function getPrettyPrice($priceHT,$tax) {
+		return number_format(Tools::getPriceTTC($priceHT,$tax), 2, ',', ' ') . "€ TTC";
+	}
 }

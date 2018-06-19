@@ -1,20 +1,10 @@
 <?php
 
-class ProfilController
+class BookingController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
-        $profilModel = new ProfilModel();
-
-        $profil = $profilModel->getUser();
-        // $tools = new Tools();
-        // $tools->pre($productList);
-        // ou
-        // Tools::pre($productList);
-        // exit;
-
-        return ['profil' => $profil];
-        
+        // die('hello');
         
     	/*
     	 * Méthode appelée en cas de requête HTTP GET
@@ -26,8 +16,15 @@ class ProfilController
 
     public function httpPostMethod(Http $http, array $formFields)
     {
-    	/*
-    	 * Méthode appelée en cas de requête HTTP POST
+
+ 
+
+    	
+      
+        
+
+
+       	 /* Méthode appelée en cas de requête HTTP POST
     	 *
     	 * L'argument $http est un objet permettant de faire des redirections etc.
     	 * L'argument $formFields contient l'équivalent de $_POST en PHP natif.

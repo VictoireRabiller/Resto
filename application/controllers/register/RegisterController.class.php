@@ -16,28 +16,29 @@ class RegisterController
 
     public function httpPostMethod(Http $http, array $formFields)
     {
+
+ 
+
     	
          // var_dump($formFields);   
 
         $userModel = new UserModel();
+        //formatage de la date pour db
+        $timestamp = mktime(0, 0, 0, $formFields['month'], $formFields['day'], $formFields['year']);
+
+        $formFields['birthdate'] = date('Y-m-d', $timestamp);
+        //j'efface mes variables month day et year du formfields
+        unset($formFields['month']);
+        unset($formFields['day']);
+        unset($formFields['year']);
+
+
+        // var_dump($formFields);
+        // exit;
 
         $userModel->createUser($formFields);
 
         $http->redirectTo('login');
-
-        // $user = [];
-
-        // $user['firstname'] = $_POST['firstname'];
-        // $user['lastname'] = $_POST['lastname'];
-        // $user['birthday'] = $_POST['birthday'];
-        // $user['email'] = $_POST['email'];
-        // $user['password'] = $_POST['password'];
-        // $user['address'] = $_POST['address'];
-        // $user['zipcode'] = $_POST['zipcode'];
-        // $user['city'] = $_POST['city'];
-        // $user['phone'] = $_POST['phone'];
-        // $user['created_at'] = $_POST['created_at'];
-        // $user['updated_at'] = $_POST['updated_at'];
 
         
 

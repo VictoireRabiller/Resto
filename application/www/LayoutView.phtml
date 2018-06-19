@@ -35,13 +35,29 @@
 <!-- Interface utilisateur -->
 <nav class="user-interface">
     <ul class="link-list">
-                            <li>
-                    <a class="button button-primary" href="<?= $requestUrl ?>/register">Créer un compte</a>
-                </li>
-                <li class="layout-right">
-                    <a class="button button-primary" href="<?= $requestUrl ?>/user/login">Connexion</a>
-                </li>
-                    </ul>
+        
+        <?php if (isset($_SESSION['user_id'])): ?>
+            
+        <?php
+            
+          $user= UserModel::getUserById($_SESSION['user_id']);
+        
+        ?>
+
+        <li>Bonjour <?= $me['firstname'] ?> <?= $me['lastname'] ?></li>
+
+        <li class="layout-right"><a class="button button-primary" href="<?= $requestUrl ?>/logout">Se déconnecter</a></li>
+
+        <?php else: ?>
+
+        <li><a class="button button-primary" href="<?= $requestUrl ?>/register">Créer un compte</a></li>
+                    
+        <li class="layout-right"><a class="button button-primary" href="<?= $requestUrl ?>/login">S'identifier</a></li>
+
+        <?php endif; ?>
+                    
+    </ul>
+
 </nav>
 
 <main>
@@ -61,6 +77,10 @@
 
 <!-- Code principal JavaScript de l'application -->
 <script src="<?= $wwwUrl ?>/js/main.js"></script>
-
+<div>
+<?php
+Tools::pre($_SESSION);
+?>
+</div>
 </body>
 </html>

@@ -14,8 +14,7 @@
         		<p><?= $product["description"]; ?></p>
         	</td>
         	<td>
-            <?php $priceTTC = Tools::getPriceTTC($product["priceHT"],$product["tax"]) ?>
-            <?= $formattedPriceTTC = number_format($priceTTC, 2, ","," ") ?> €
+            <?=  Tools::getPrettyPrice($product['priceHT'], $product["tax"]) ?>
             </td>
         </tr>
     	<?php endforeach; ?>

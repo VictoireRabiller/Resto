@@ -13,10 +13,70 @@
 		<input type="text" name="firstname" id="firstname"></label>
 		
 		<br>
-		<label for="birthday">Date anniversaire : 
-		<input type="text" name="birthday" id="birthday"></label>
-		
+			
 
+		<label for="birthdate">Date de naissance :</label>
+		<!-- <input type="date" name="birthday" id="birthday"></label> -->
+
+			<select name="day">
+				<option></option>
+						
+					<?php
+
+					for($i = 1; $i <= 31; $i++){
+						$i = str_pad($i, 2, 0, STR_PAD_LEFT);
+						echo "<option value='$i'>$i</option>";
+					}
+					
+					?>
+					
+					</select>
+
+					/
+
+					<select name="month">
+						<option></option>
+						
+						<?php
+						$months = [];
+						
+						$months[1] = "Janvier";
+						$months[2] = "Février";
+						$months[3] = "Mars";
+						$months[4] = "Avril";
+						$months[5] = "Mai";
+						$months[6] = "Juin";
+						$months[7] = "Juillet";
+						$months[8] = "Aout";
+						$months[9] = "Septembre";
+						$months[10] = "Octobre";
+						$months[11] = "Novembre";
+						$months[12] = "Décembre";
+
+
+						foreach($months as $key =>$month) {
+						  
+							echo "<option value='$key'>$month</option>";
+						}
+					?>
+					
+					</select> 
+
+					/ 
+
+					<select id="year" name="year">
+						
+			  		<option></option>
+
+					<?php
+						for($i = date('Y')-15; $i >= date(('Y'), strtotime('-100 years')); $i--){
+						  echo "<option value='$i'>$i</option>";
+						} 
+					?> 
+					</select>
+
+
+				
 		<br>
 		
 		<label for="address">Adresse : 
