@@ -1,18 +1,20 @@
 <?php
 
-class UserController
+class OrderController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
-        $userModel = new UserModel();
+        $productModel = new ProductModel();
 
-        $user = $userModel->getUser();
-      
-        // Tools::pre($user);
+        $productList = $productModel->getAllProducts();
+        // $tools = new Tools();
+        // $tools->pre($productList);
+        // ou
+        // Tools::pre($productList);
         // exit;
 
-        return ['user' => $user];
-        
+        return ['products' => $productList];
+        // die('hello');
         
     	/*
     	 * Méthode appelée en cas de requête HTTP GET
@@ -24,8 +26,15 @@ class UserController
 
     public function httpPostMethod(Http $http, array $formFields)
     {
-    	/*
-    	 * Méthode appelée en cas de requête HTTP POST
+
+ 
+
+    	
+      
+        
+
+
+       	 /* Méthode appelée en cas de requête HTTP POST
     	 *
     	 * L'argument $http est un objet permettant de faire des redirections etc.
     	 * L'argument $formFields contient l'équivalent de $_POST en PHP natif.

@@ -4,27 +4,27 @@ class UserModel {
 
 	public function createUser(array $user) {
 
-    // var_dump($user);
+    	// var_dump($user);
 
-	if (empty($user['email'])) {
-		throw new Exception("Email empty");
-	}
+		if (empty($user['email'])) {
+			throw new Exception("Email empty");
+		}
 
-	if (empty($user['password'])) {
-		throw new Exception("password empty");
-	}
-
-
-	$user['password'] = crypt($user['password'], 'rl');
+		if (empty($user['password'])) {
+			throw new Exception("password empty");
+		}
 
 
-	$db = new Database();
+		$user['password'] = crypt($user['password'], 'rl');
 
-	$sql = "
-		INSERT INTO user
-		(firstname, lastname, birthdate, email, password, address, zipcode, city, phone, created_at, updated_at)
-		VALUES (:firstname, :lastname, :birthdate, :email, :password, :address, :zipcode, :city, :phone, NOW(), NOW())
-		";
+
+		$db = new Database();
+
+		$sql = "
+			INSERT INTO user
+			(firstname, lastname, birthdate, email, password, address, zipcode, city, phone, created_at, updated_at)
+			VALUES (:firstname, :lastname, :birthdate, :email, :password, :address, :zipcode, :city, :phone, NOW(), NOW())
+			";
 
 		$db->executeSql($sql, $user);
 	}

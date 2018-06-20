@@ -35,23 +35,24 @@
 <!-- Interface utilisateur -->
 <nav class="user-interface">
     <ul class="link-list">
-        <?php
-        $userSession = new UserSession();
-        ?>
-        <?php if ($userSession->isConnected()): ?>
+        <?php if (UserSession::isConnected()): ?>
             <?php
-                $user = $userSession->getUser();
+                $user = UserSession::getUser();
             ?>
-            <li>Bonjour <?= $user['firstname']?> <?= $user['lastname'] ?>  </li> 
+            <li><a class="button button-primary" href="<?= $requestUrl ?>/booking">Réserver</a></li>
+            <li><a class="button button-primary" href="<?= $requestUrl ?>/order">Commander</a></li>
+            <li><strong>Bonjour <?= $user['firstname'] ." ". $user['lastname'] ?> </strong></li> 
+            <li class="layout-right"><a class="button button-primary" href="<?= $requestUrl ?>/logout">Se déconnecter</a></li>
+
+            
 
         <?php else: ?>
-            
+            <li><a class="button button-primary" href="<?= $requestUrl ?>/register">Créer un compte</a></li>
             <li class="layout-right"><a class="button button-primary"  href="<?= $requestUrl ?>/login">Se connecter</a></li>
             
         <?php endif ?>
-        <li class="layout-right"><a class="button button-primary" href="<?= $requestUrl ?>/logout">Se déconnecter</a></li>
 
-        <li><a class="button button-primary" href="<?= $requestUrl ?>/register">Créer un compte</a></li>
+        
     </ul>
 </nav>
    

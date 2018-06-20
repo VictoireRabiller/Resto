@@ -11,4 +11,18 @@ class ProductModel {
 
 		return $products;
 	}
+
+
+	public static function getProductById($id) {
+
+		$db = new Database();
+
+		$sql = "SELECT * FROM product WHERE id = ?";
+
+		$params = [$id];
+
+		return $db->queryOne($sql, $params);
+	}
+
+
 }
