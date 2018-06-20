@@ -1,34 +1,31 @@
- <h2><i class="fa fa-shopping-cart"></i> Passer une commande</h2>
-
-<fieldset>
+<h2><i class="fa fa-shopping-cart"></i> Passer une commande</h2>
+<div class="box-add-article">
+<form>
+    <fieldset>
         <legend>Ajouter un article</legend>
-        <ul>
-            <li>
-                <label for="productSelected">Nom :</label>
-                <select id="productSelected" name="productSelected" width="200px">
-                	<option></option>
-                	<?php foreach ($products as $product): ?>
+            <label for="productSelected">Nom :</label>
+            <select id="productSelected" name="productSelected" width="200px">
+              	<option></option>
+                <?php foreach ($productList as $product): ?>
                     <option value="<?= $product["id"]; ?>"><?= $product["name"]; ?> </option>  
                         
-                    <?php endforeach; ?>                        
+                <?php endforeach; ?>                        
                 </select>
-
-                <article id="meal-details" class="meal-details no-left-label">
-                    <img src="" alt="">
-                    <p></p>
-                    <span>Prix : <strong></strong></span>
-                </article>
-            </li>
-            <li>
+        <div class="product-info">
+            <article id="meal-details" class="meal-details no-left-label">
+                <img src="" alt="">
+                <p></p>
+                <span>Prix : <strong></strong></span>
+            </article>
                 <label for="quantity">Quantité :</label>
                 <input id="quantity" class="quantity" type="text" maxlength="2" name="quantity" data-name="Quantité" data-type="positive-integer" data-required>
-            </li>
-            <li>
+        
                 <button class="button button-primary no-left-label" type="submit">Ajouter</button>
-            </li>
-        </ul>
+        </div>      
     </fieldset>
+</div>
 
+<div class="box-cart">
     <fieldset>
         <legend>Récapitulatif de la commande</legend>
         <section id="order-summary"></section>
@@ -42,7 +39,7 @@
     </li>
 </ul>
 
-
+</div>
     <script src="<?= $wwwUrl ?>/js/order.js"></script>
 
 

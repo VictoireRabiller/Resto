@@ -6,9 +6,8 @@ class HomeController
     public function httpGetMethod(Http $http, array $queryFields)
     {
         // die('hello');
-        $productModel = new ProductModel();
+         $productList = ProductModel::getAllProducts();
 
-        $productList = $productModel->getAllProducts();
         // $tools = new Tools();
         // $tools->pre($productList);
         // ou

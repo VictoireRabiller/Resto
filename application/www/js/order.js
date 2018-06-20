@@ -1,31 +1,24 @@
 'use strict';
 console.log("order.js chargé")
-/////////////////////////////////////////////////////////////////////////////////////////
-// FONCTIONS                                                                           //
-/////////////////////////////////////////////////////////////////////////////////////////
 
 
-$("#productSelected").on('change',function(){
+$('select').on('change', function () {
 
-	var id = $('option:selected').val();
 	
-	console.log(id);
-	
+
+	var productId = $(this).val();
+
+	console.log('change', productId);
+
 	var url = getRequestUrl() + '/product';
-	
+
 	var params = {
-		id:id
-	}
-	
-	$produitDescription= $.get('ProductView.phtml');
+		id: productId
+	};
 
+	console.log(params);
+
+	$.get(url, params, function (html) {
+		$('.product-info').html(html);
+	});
 });
-
-
-
-
-
-/////////////////////////////////////////////////////////////////////////////////////////
-// CODE PRINCIPAL                                                                      //
-/////////////////////////////////////////////////////////////////////////////////////////
-

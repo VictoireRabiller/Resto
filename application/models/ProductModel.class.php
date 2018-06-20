@@ -2,7 +2,7 @@
 
 class ProductModel {
 
-	public function getAllProducts() {
+	public static function getAllProducts() {
 
 		$db = new Database();
 
@@ -11,8 +11,7 @@ class ProductModel {
 
 		return $products;
 	}
-
-
+	
 	public static function getProductById($id) {
 
 		$db = new Database();
