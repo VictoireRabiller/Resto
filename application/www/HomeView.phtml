@@ -14,7 +14,7 @@
         		<p><?= $product["description"]; ?></p>
         	</td>
         	<td>
-            <?=  Tools::getPrettyPrice($product['priceHT'], $product["tax"]) ?>
+            <?=  Tools::getPrettyPrice(Tools::getPriceTTC($product['priceHT'])) ?>
             </td>
         </tr>
     	<?php endforeach; ?>

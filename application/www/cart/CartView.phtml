@@ -10,18 +10,20 @@
             </tr>
         </thead>
         <tbody>
+            <?php foreach ($products as $product): ?>
+
             <tr>
-                <td class="number">#</td>
+                <td class="number"><?= $product['quantity'] ?></td>
                 <td><strong><?= $product['name'] ?></strong></td>
-                <td class="number"><?=  Tools::getPrettyPrice($product['priceHT'], $product["tax"]) ?></td>
-                <td class="number"><?=  Tools::getPrettyPrice($product['priceHT'], $product["tax"]) ?></td>
+                <td class="number"><?=  Tools::getPrettyPrice(Tools::getPriceTTC($product['priceHT'])) ?></td>
+                <td class="number"><?= Tools::getPrettyPrice(Tools::getPriceTTC($product['priceHT'] * $product['quantity'])) ?></td>
                 <td>
-                    <button class="button button-cancel small" title="Supprimer l'article" data-meal-id="<?= $product['id'] ?>">
+                    <button class="button button-cancel small btn-delete" title="Supprimer" data-id="<?= $product['id'] ?>">
                     <i class="fa fa-trash"></i>
                     </button>
                 </td>
             </tr>
-                            
+         <?php endforeach ?>                   
         </tbody>
     </table>
 </section>

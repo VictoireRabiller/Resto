@@ -7,14 +7,14 @@ class Tools {
 		echo "</pre>";
 	} 
 
-	static function getPriceTTC($priceHT, $tax){
+	static function getPriceTTC($priceHT){
 		
-		$priceTTC = $priceHT * ( 1 + ( $tax / 100 ));
+		$priceTTC = $priceHT * 1.1;
 		return $priceTTC;
 
 	}
 
-	public static function getPrettyPrice($priceHT,$tax) {
-		return number_format(Tools::getPriceTTC($priceHT,$tax), 2, ',', ' ') . "€ TTC";
+	public static function getPrettyPrice($price) {
+		return number_format($price, 2, ',', ' ') . "€ TTC";
 	}
 }

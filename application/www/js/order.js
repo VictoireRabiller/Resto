@@ -25,7 +25,7 @@ $('select').trigger('change');
 
 
 
-$('#add').on('click', function () {
+$('#btn-add').on('click', function () {
 	console.log('click');
 	
 	var productId = $("select").val();
@@ -35,15 +35,25 @@ $('#add').on('click', function () {
 
 	var url = getRequestUrl() + '/cart';
 
-	var params = {
-		id: productId,
-		quantity: quantity
-	};
+	var params = {};
+	params.id = productId;
+	params.quantity = quantity;
 
 	console.log(params);
 
 	$.post(url, params, function (html) {
-		$('.order-summary').html(html);
+		$('.box_cart').html(html);
 	});
 });
+
+function loadCart() {
+	// load cart
+	var url = getRequestUrl() + '/cart';
+
+	$.get(url, function (html) {
+		$('.box-cart').html(html);
+	});	
+}
+
+loadCart();
 

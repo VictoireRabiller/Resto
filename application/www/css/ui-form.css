@@ -87,7 +87,7 @@
 }
 .generic-form input.quantity
 {
-    width: 35px; /* 3 caractères */
+    width: 50px; /* 3 caractères */
 }
 .generic-form input.phone
 {
