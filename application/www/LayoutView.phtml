@@ -41,14 +41,16 @@
             ?>
             <li><a class="button button-primary" href="<?= $requestUrl ?>/booking">Réserver</a></li>
             <li><a class="button button-primary" href="<?= $requestUrl ?>/order">Commander</a></li>
-            <li><strong>Bonjour <?= $user['firstname'] ." ". $user['lastname'] ?> </strong></li> 
-            <li class="layout-right"><a class="button button-primary" href="<?= $requestUrl ?>/logout">Se déconnecter</a></li>
+            <li class="layout-right">
+                <p class="welcome"><strong>Bonjour <?= $user['firstname'] ." ". $user['lastname'] ?> </strong></p> 
+                <a class="button button-primary" href="<?= $requestUrl ?>/logout">Déconnexion</a>
+            </li>
 
             
 
         <?php else: ?>
             <li><a class="button button-primary" href="<?= $requestUrl ?>/register">Créer un compte</a></li>
-            <li class="layout-right"><a class="button button-primary"  href="<?= $requestUrl ?>/login">Se connecter</a></li>
+            <li class="layout-right"><a class="button button-primary"  href="<?= $requestUrl ?>/login">Connexion</a></li>
             
         <?php endif ?>
 

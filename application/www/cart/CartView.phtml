@@ -1,0 +1,29 @@
+<section id="order-summary">
+    <table class="generic-table">
+        <thead>
+            <tr>
+                <th class="number">Quantité</th>
+                <th>Produit</th>
+                <th class="number">Prix Unitaire</th>
+                <th class="number">Prix Total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="number">#</td>
+                <td><strong><?= $product['name'] ?></strong></td>
+                <td class="number"><?=  Tools::getPrettyPrice($product['priceHT'], $product["tax"]) ?></td>
+                <td class="number"><?=  Tools::getPrettyPrice($product['priceHT'], $product["tax"]) ?></td>
+                <td>
+                    <button class="button button-cancel small" title="Supprimer l'article" data-meal-id="<?= $product['id'] ?>">
+                    <i class="fa fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+                            
+        </tbody>
+    </table>
+</section>
+
+

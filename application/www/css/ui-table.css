@@ -9,7 +9,7 @@
 .generic-table caption
 {
     /* structure */
-    margin: 0.25em 0;
+    margin: 2em 0;
 
     /* presentation */
     color: #846361;
@@ -55,6 +55,6 @@
 }
 .generic-table tr:not(.small-notice):hover td
 {
-    background-color: #846361;
+    background-color:/*#846361*/#b38583;
     color: white;
 }

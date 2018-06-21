@@ -1,27 +1,27 @@
 <h2><i class="fa fa-shopping-cart"></i> Passer une commande</h2>
 <div class="box-add-article">
-<form>
+<form class="generic-form">
     <fieldset>
         <legend>Ajouter un article</legend>
-            <label for="productSelected">Nom :</label>
-            <select id="productSelected" name="productSelected" width="200px">
-              	<option></option>
-                <?php foreach ($productList as $product): ?>
-                    <option value="<?= $product["id"]; ?>"><?= $product["name"]; ?> </option>  
-                        
-                <?php endforeach; ?>                        
-                </select>
+            <ul>
+                <li>
+                    <label for="product">Nom :</label>
+                    <select id="product" name="product" width="200px">
+                        <?php foreach ($productList as $product): ?>
+                        <option value="<?= $product["id"]; ?>"><?= $product["name"]; ?> </option>
+                        <?php endforeach; ?>                        
+                    </select> 
+                </li>
+            
         <div class="product-info">
-            <article id="meal-details" class="meal-details no-left-label">
-                <img src="" alt="">
-                <p></p>
-                <span>Prix : <strong></strong></span>
-            </article>
-                <label for="quantity">Quantité :</label>
-                <input id="quantity" class="quantity" type="text" maxlength="2" name="quantity" data-name="Quantité" data-type="positive-integer" data-required>
-        
-                <button class="button button-primary no-left-label" type="submit">Ajouter</button>
-        </div>      
+         
+        </div>   
+        <li>
+            <label for="quantity">Quantité :</label>
+            <input id="quantity" class="quantity" type="text" maxlength="2" name="quantity" data-name="Quantité" data-type="positive-integer" data-required>
+        </li>
+        <button id="add" class="button button-primary no-left-label" type="button">Ajouter</button>
+        </ul>
     </fieldset>
 </div>
 
@@ -34,14 +34,13 @@
 
 <ul class="link-list">
     <li>
-        <button id="validate-order" class="button button-primary" disabled>Valider la commande</button>
-        <a class="button button-cancel small" href="/dev/resto/final/index.php">Annuler</a>
+        <button id="validate-order" class="button button-primary">Valider la commande</button>
+        <a class="button button-cancel small" href="<?= $requestUrl ?>">Annuler</a>
     </li>
 </ul>
 
 </div>
     <script src="<?= $wwwUrl ?>/js/order.js"></script>
-
 
 
 

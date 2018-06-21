@@ -1,5 +1,9 @@
-<?php
-
-Tools::pre($product);
-
-?>
+<article id="meal-details" class="meal-details no-left-label">
+    <img src="<?= $wwwUrl ?>/images/meals/<?= $product['image'] ?>">
+    <h3><?= $product['name'] ?></h3>
+    <div class="content">
+		<?= $product['description'] ?>
+	</div>
+	<p></p>
+    <span>Prix : <strong> <?=  Tools::getPrettyPrice($product['priceHT'], $product["tax"]) ?></strong></span>
+</article>

@@ -1,122 +1,125 @@
 
 
-<form method="post" action="">
+<form method="post" action="" class="generic-form">
 	
 	<fieldset>
 		<legend><i class="fa fa-book"></i> Identité et coordonnées </legend>
-		<br>
-		<label for="lastname">Nom : 
-		<input type="text" name="lastname" id="lastname"></label>
-		
-		<br>
-		<label for="firstname">Prénom : 
-		<input type="text" name="firstname" id="firstname"></label>
-		
-		<br>
+		<ul>
+			<li>
+				<label for="lastname">Nom : </label>
+				<input type="text" name="lastname" id="lastname">
 			
-
-		<label for="birthdate">Date de naissance :</label>
-		<!-- <input type="date" name="birthday" id="birthday"></label> -->
-
-			<select name="day">
-				<option></option>
-						
-					<?php
-
-					for($i = 1; $i <= 31; $i++){
-						$i = str_pad($i, 2, 0, STR_PAD_LEFT);
-						echo "<option value='$i'>$i</option>";
-					}
-					
-					?>
-					
-					</select>
-
-					/
-
-					<select name="month">
-						<option></option>
-						
-						<?php
-						$months = [];
-						
-						$months[1] = "Janvier";
-						$months[2] = "Février";
-						$months[3] = "Mars";
-						$months[4] = "Avril";
-						$months[5] = "Mai";
-						$months[6] = "Juin";
-						$months[7] = "Juillet";
-						$months[8] = "Aout";
-						$months[9] = "Septembre";
-						$months[10] = "Octobre";
-						$months[11] = "Novembre";
-						$months[12] = "Décembre";
-
-
-						foreach($months as $key =>$month) {
-						  
-							echo "<option value='$key'>$month</option>";
-						}
-					?>
-					
-					</select> 
-
-					/ 
-
-					<select id="year" name="year">
-						
-			  		<option></option>
-
-					<?php
-						for($i = date('Y')-15; $i >= date(('Y'), strtotime('-100 years')); $i--){
-						  echo "<option value='$i'>$i</option>";
-						} 
-					?> 
-					</select>
-
-
+			</li>
+			<li>
+				<label for="firstname">Prénom : </label>
+				<input type="text" name="firstname" id="firstname">
+			</li>
 				
-		<br>
-		
-		<label for="address">Adresse : 
-		<input type="text" name="address" id="address"></label>
-		
-		<br>
-		<label for="city">Ville : 
-		<input type="text" name="city" id="city"></label>
-		
-		<br>
-		<label for="zipcode">CP : 
-		<input type="text" name="zipcode" id="zipcode"></label>
-		
-		<br>
-		<label for="phone">Tel : 
-		<input type="text" name="phone" id="phone"></label>
-		
-		<br>
+			<li>	
+				<label for="birthdate">Date de naissance :</label>
+			<!-- <input type="date" name="birthday" id="birthday"></label> -->
 
-		
+				<select name="day">
+					<option></option>
+							
+						<?php
+
+						for($i = 1; $i <= 31; $i++){
+							$i = str_pad($i, 2, 0, STR_PAD_LEFT);
+							echo "<option value='$i'>$i</option>";
+						}
+						
+						?>
+						
+						</select>
+
+						/
+
+						<select name="month">
+							<option></option>
+							
+							<?php
+							$months = [];
+							
+							$months[1] = "Janvier";
+							$months[2] = "Février";
+							$months[3] = "Mars";
+							$months[4] = "Avril";
+							$months[5] = "Mai";
+							$months[6] = "Juin";
+							$months[7] = "Juillet";
+							$months[8] = "Aout";
+							$months[9] = "Septembre";
+							$months[10] = "Octobre";
+							$months[11] = "Novembre";
+							$months[12] = "Décembre";
+
+
+							foreach($months as $key =>$month) {
+							  
+								echo "<option value='$key'>$month</option>";
+							}
+						?>
+						
+						</select> 
+
+						/ 
+
+						<select id="year" name="year">
+							
+				  		<option></option>
+
+						<?php
+							for($i = date('Y')-15; $i >= date(('Y'), strtotime('-100 years')); $i--){
+							  echo "<option value='$i'>$i</option>";
+							} 
+						?> 
+						</select>
+
+
+					
+			</li>
+			<li>
+			
+				<label for="address">Adresse : </label>
+				<input type="text" name="address" id="address">
+			</li>
+			<li>
+				<label for="city">Ville : </label>
+				<input type="text" name="city" id="city">
+			</li>
+			<li>
+				<label for="zipcode">CP : </label>
+				<input type="text" name="zipcode" id="zipcode">
+			</li>
+			<li>
+				<label for="phone">Tel : </label>
+				<input type="text" name="phone" id="phone">
+			
+			</li>
+
+		</ul>
 
 	</fieldset>
 
 
 	<fieldset>
 		<legend><i class="fa fa-lock"></i> Informations d'authentification </legend>
-
-		<br>
+		<ul>
+			<li>
 		
-		<label for="email">Email : 
-		<input type="text" name="email" id="email"></label>
-		<br>
-		<label for="password">Mot de passe : 
-		<input type="password" name="password" id="password">
-		<br></label>
-		
+				<label for="email">Email : </label>
+				<input type="text" name="email" id="email">
+			</li>
+			<li>
+				<label for="password">Mot de passe : </label>
+				<input type="password" name="password" id="password">
+			</li>
+		</ul>
 		
 	</fieldset>
 		
 	<input class="button button-primary" type="submit" value="Créer le compte">
-	<a class="button button-cancel small" href="/dev/resto/final/index.php">Annuler</a>
+	<a class="button button-cancel small" href="<?= $requestUrl ?>">Annuler</a>
 		
 </form>
