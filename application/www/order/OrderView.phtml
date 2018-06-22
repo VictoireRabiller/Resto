@@ -3,34 +3,36 @@
 <form class="generic-form">
     <fieldset>
         <legend>Ajouter un article</legend>
-            <ul>
-                <li>
-                    <label for="product">Nom :</label>
-                    <select id="product" name="product" width="200px">
-                        <?php foreach ($productList as $product): ?>
-                        <option value="<?= $product["id"]; ?>"><?= $product["name"]; ?> </option>
-                        <?php endforeach; ?>                        
-                    </select> 
-                </li>
-            
-        <div class="product-info">
-         
-        </div>   
-        <li>
-            <label for="quantity">Quantité :</label>
-            <input id="quantity" class="quantity" type="number" maxlength="2" name="quantity" data-name="Quantité" data-type="positive-integer" data-required>
-        </li>
-        <button id="btn-add" class="button button-primary no-left-label" type="button">Ajouter</button>
+        <ul>
+            <li>
+                <label for="product">Nom :</label>
+                <select id="product" name="product" width="200px">
+                    <?php foreach ($productList as $product): ?>
+                    <option value="<?= $product["id"]; ?>"><?= $product["name"]; ?> </option>
+                    <?php endforeach; ?>                        
+                </select> 
+            </li>
+        
+            <div class="product-info">
+     
+            </div>   
+            <li>
+                <label for="quantity">Quantité :</label>
+                <input id="quantity" class="quantity" type="number" maxlength="2" name="quantity" data-name="Quantité" data-type="positive-integer" data-required>
+            </li>
+            <button type="button" id="btn-add"  class="button button-primary no-left-label" >Ajouter</button>
         </ul>
     </fieldset>
-</div>
+
 
     <fieldset>
         <legend>Récapitulatif de la commande</legend>
-        <div class="box-cart">
+        <div class="box-cart" >
+            
         </div>
-        <section id="order-summary"></section>
+
     </fieldset>
+</div>
 </form>
 
 <ul class="link-list">

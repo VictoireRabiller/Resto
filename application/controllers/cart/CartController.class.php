@@ -12,21 +12,25 @@ class CartController
     public function httpPostMethod(Http $http, array $formFields)
     {
 
-        $quantity = $formFields['quantity'];
-        $productId = $formFields['id'];
+        if (isset($formFields['delete'])) {
 
-        Cart::add($productId, $quantity);
+            $productId = $formFields['id'];
+            Cart::deleteOneProduct($productId);
 
+        } else {
+            $quantity = $formFields['quantity'];
+            $productId = $formFields['id'];
+
+            Cart::add($productId, $quantity);            
+        }
+
+        
         $products = Cart::getProductsWithQuantity();
 
         return ['products' => $products, '_raw_template' => true];
     }
 
 }
-
-
-
-
 
 
 

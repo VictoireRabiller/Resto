@@ -1,31 +1,40 @@
 <section id="order-summary">
     <table class="generic-table">
-        <thead>
-            <tr>
-                <th class="number">Quantité</th>
-                <th>Produit</th>
-                <th class="number">Prix Unitaire</th>
-                <th class="number">Prix Total</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($products as $product): ?>
+    <?php if (empty($_SESSION['cart'])): ?>
 
-            <tr>
-                <td class="number"><?= $product['quantity'] ?></td>
-                <td><strong><?= $product['name'] ?></strong></td>
-                <td class="number"><?=  Tools::getPrettyPrice(Tools::getPriceTTC($product['priceHT'])) ?></td>
-                <td class="number"><?= Tools::getPrettyPrice(Tools::getPriceTTC($product['priceHT'] * $product['quantity'])) ?></td>
-                <td>
-                    <button class="button button-cancel small btn-delete" title="Supprimer" data-id="<?= $product['id'] ?>">
-                    <i class="fa fa-trash"></i>
-                    </button>
-                </td>
-            </tr>
-         <?php endforeach ?>                   
-        </tbody>
-    </table>
+        <td class="basket-empty">Votre panier est vide pour le moment !</td>                       
+
+    <?php else: ?>
+                
+
+            <thead>
+                <tr>
+                    <th class="number">Quantité</th>
+                    <th>Produit</th>
+                    <th class="number">Prix Unitaire</th>
+                    <th class="number">Prix Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($products as $product): ?>
+                <tr>
+                    <td class="number"><?= $product['quantity'] ?></td>
+                    <td><strong><?= $product['name'] ?></strong></td>
+                    <td class="number"><?=  Tools::getPrettyPrice(Tools::getPriceTTC($product['priceHT'])) ?></td>
+                    <td class="number"><?= Tools::getPrettyPrice(Tools::getPriceTTC($product['priceHT'] * $product['quantity'])) ?></td>
+                    <td>
+                        <button type="button" class="button button-cancel small btn-delete" title="Supprimer" data-id="<?= $product['id'] ?>">
+                        <i class="fa fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+             <?php endforeach ?>                   
+            </tbody>
+        </table>
+
+
+
+    <?php endif ?>
+
 </section>
-
-

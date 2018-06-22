@@ -212,7 +212,7 @@ html
  */
 .basket-empty
 {
-    color: #339966;
+    color: /*#339966*/#000000;
     font-size: 1.25em;
     font-weight: bold;
     text-align: center;

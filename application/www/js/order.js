@@ -42,7 +42,7 @@ $('#btn-add').on('click', function () {
 	console.log(params);
 
 	$.post(url, params, function (html) {
-		$('.box_cart').html(html);
+		$('.box-cart').html(html);
 	});
 });
 
@@ -56,4 +56,30 @@ function loadCart() {
 }
 
 loadCart();
+
+
+$(document).on("click",".btn-delete", function(){
+   //on récupére l'objet document qui est l'objet principal de js pas de guillemet car ce serait une chaine de caractere
+    console.log('click');
+    
+    if (confirm('Voulez-vous vraiment retirer ce produit de votre panier ?')) {
+        
+        var productId = $(this).attr('data-id');    
+		// this représente le bouton sur lequel on a cliqué
+        var url = getRequestUrl() + '/cart';
+
+        var params = {};
+        params.id = productId;
+        params.delete = 1;
+        //params.delete peut avoir n'importe quelle valeur.
+
+        console.log(params);
+
+    	$.post(url, params, function (html) {
+       		$('.box-cart').html(html);
+    	});
+
+	}
+});
+
 

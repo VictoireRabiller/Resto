@@ -1,0 +1,64 @@
+<h2><i class="fa fa-check"></i> Payer la commande</h2>
+
+<section class="invoice">
+     <?php $user = UserSession::getUser(); ?>
+        <p><strong> <?= $user['firstname'] ." ". $user['lastname'] ?></strong></p>
+    <p> <?= $user['address'] ?></p>
+    <p><?= $user['zipcode'] ?> <span class="city"><?= $user['city'] ?></span></p>
+</section>
+
+<table class="generic-table meal-list">
+    <caption>Récapitulatif de la commande</caption>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th class="number">Quantité</th>
+            <th class="number">Prix Unitaire</th>
+            <th class="number">Prix Total</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>
+            <?php
+            /*
+                 <img src="<?= $wwwUrl ?>/images/meals/<?= $product['image'] ?>" width="25%">
+                <em><?= $product['name']?></em>
+            </td>
+            <td class="number"><?= $product['quantity']?></td>
+            <td class="number"><?=  Tools::getPrettyPrice(Tools::getPriceTTC($product['priceHT'])) ?></td>
+            <td class="number"><?= Tools::getPrettyPrice(Tools::getPriceTTC($product['priceHT'] * $product['quantity'])) ?></td>
+           */ 
+            ?>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">Total HT</td>
+            <td>######### €</td>
+        </tr>
+        <tr>
+            <td colspan="3">TVA (10 %)</td>
+            <td>##########</td>
+        </tr>
+        <tr>
+            <td class="colorful" colspan="3">Total TTC</td>
+            <td class="colorful">##########</td>
+        </tr>
+        <tr class="small-notice">
+            <td colspan="4">Commandé le #############</td>
+        </tr>
+    </tfoot>
+</table>
+
+<hr>
+<h3>Merci de bien vouloir procéder au paiement de la commande.</h3>
+<form class="generic-form" action="/dev/resto/final/index.php/order/payment" method="POST">
+    <ul>
+        <li>
+            <input class="button button-primary" type="submit" value="Payer">
+            <a class="button button-cancel small" href="/dev/resto/final/index.php">Annuler</a>
+        </li>
+    </ul>
+</form>   
