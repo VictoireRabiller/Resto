@@ -2,9 +2,10 @@
 
 class OrderModel {
 
-	public function createBasket(array $basket) {
+	public function createOrder(array $cart,$user_id) {
 
-    	// var_dump($user);
+    	Tools::pre($_SESSION);
+
 
 		$db = new Database();
 
@@ -15,8 +16,7 @@ class OrderModel {
 				
 
 
-		$db->executeSql($sql, $user);
-
+		$db->executeSql($sql, $order);
 
 
 }

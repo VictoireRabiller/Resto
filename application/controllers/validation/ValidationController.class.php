@@ -10,7 +10,17 @@ class ValidationController
 
     public function httpPostMethod(Http $http, array $formFields)
     {
+    	$orderModel = new OrderModel();
+        //formatage de la date pour db
+       
 
+
+        // var_dump("$cart:".$cart);
+        // exit;
+
+        $orderModel->createOrder($cart);
+
+        $http->redirectTo('payment');
     
     }
 
