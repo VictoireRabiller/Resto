@@ -4,9 +4,11 @@ class PaymentController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
-        $products = Cart::getProductsWithQuantity();
+        $orderProductList = OrderModel::getOrderById($order_id);
 
-        return ['products' => $products];    	
+        // order line
+
+    	return ['orderProductList ' => $orderProductList ];  	
     }
 
     public function httpPostMethod(Http $http, array $formFields)

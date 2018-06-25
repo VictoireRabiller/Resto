@@ -4,23 +4,29 @@ class ValidationController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
-    
+
         
     }
 
     public function httpPostMethod(Http $http, array $formFields)
     {
-    	$orderModel = new OrderModel();
-        //formatage de la date pour db
-       
+    	$userSession = new UserSession();
 
+        if ( ! $userSession->isConnected()) {
 
-        // var_dump("$cart:".$cart);
+            $http->redirectTo('login');
+        }
+        
+        $products = Cart::getProductsWithQuantity();
+        
+        $orderId = OrderModel::createOrder($_SESSION["user_id"], $products);
+        // var_dump($products);
         // exit;
 
-        $orderModel->createOrder($cart);
+        
+        Cart::reset();
 
-        $http->redirectTo('payment');
+        $http->redirectTo('payment?id='.$orderId);
     
     }
 
