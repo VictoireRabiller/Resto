@@ -18,32 +18,36 @@
         </tr>
     </thead>
 
-    <tbody>
-        
-         <?php foreach ($order_line as $order_line): ?>
+        <?php $totalHT = 0?>
+        <?php foreach ($orderLines as $orderLine): ?> 
         <tr>
             <td>
-                <img src="<?= $wwwUrl ?>/images/meals/<?= $product['image'] ?>" width="25%">
-                <em><?= $product['name']?></em>
+                <img src="<?= $wwwUrl ?>/images/meals/<?= $orderLine['image'] ?>" width="25%">
+                <em><?= $orderLine['name']?></em>
             </td>
-            <td class="number"><?= $product['quantity']?></td>
-            <td class="number"><?=  Tools::getPrettyPrice(Tools::getPriceTTC($product['priceHT'])) ?></td>
-            <td class="number"><?= Tools::getPrettyPrice(Tools::getPriceTTC($product['priceHT'] * $product['quantity'])) ?></td>
+            <td class="number"><?= $orderLine['quantity']?></td>
+            <td class="number"><?=  Tools::getPrettyPrice(Tools::getPriceTTC($orderLine['priceHT'])) ?></td>
+            <td class="number"><?= Tools::getPrettyPrice(Tools::getPriceTTC($orderLine['priceHT'] * $orderLine['quantity'])) ?></td>
          </tr>
-         <?php endforeach; ?>                        
+         <?php $totalHT += $orderLine['priceHT'] * $orderLine['quantity'];?> 
+        <?php endforeach; ?>
     </tbody>
+
+
+
+
     <tfoot>
         <tr>
             <td colspan="3">Total HT</td>
-            <td>######### €</td>
+            <td><?= Tools::getPriceEur($totalHT) ?></td>
         </tr>
         <tr>
             <td colspan="3">TVA (10 %)</td>
-            <td>##########</td>
+            <td> <?= Tools::getPriceEur($totalHT*0.1) ?> </td>
         </tr>
         <tr>
             <td class="colorful" colspan="3">Total TTC</td>
-            <td class="colorful">##########</td>
+            <td class="colorful"> <?= Tools::getPriceEur($totalHT*1.1) ?></td>
         </tr>
         <tr class="small-notice">
             <td colspan="4">Commandé le <?=$order['created_at']?></td>
@@ -53,9 +57,10 @@
 
 <hr>
 <h3>Merci de bien vouloir procéder au paiement de la commande.</h3>
-<form class="generic-form" action="/dev/resto/final/index.php/order/payment" method="POST">
+<form class="generic-form" action="<?= $requestUrl ?>/success" method="POST">
     <ul>
         <li>
+        <input type="hidden" value="<?=$order['id']?>" name="orderId" >
             <input class="button button-primary" type="submit" value="Payer">
             <a class="button button-cancel small" href="<?= $requestUrl ?>">Annuler</a>
         </li>

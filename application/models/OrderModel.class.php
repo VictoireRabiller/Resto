@@ -59,16 +59,78 @@ class OrderModel {
 
 
 
+	// public static function getOrderById($id) {
+
+	// 	$db = new Database();
+
+	// 	$sql = "
+	// 			SELECT `order`.id, `order`.user_id, `order`.created_at, `order`.status, order_line.product_id, order_line.order_id, order_line.priceHT,order_line.tax, order_line.quantity
+	// 			FROM `order` 
+	// 			JOIN order_line ON `order`.id = order_line.order_id 
+	// 			WHERE  `order`.id LIKE ?";
+	// 	$params = [];
+	// 	$params[] = $id;
+
+	// 	return $db->queryOne($sql, $params);
+	// }
+
 	public static function getOrderById($id) {
 
 		$db = new Database();
-************************************
-		$sql = "SELECT * FROM `order` WHERE id = ?
-		JOIN ....";
-*******************************
-		$params = [$id];
 
-		return $db->queryOne($sql, $params);
+		$sql = "
+				SELECT *
+				FROM `order` 
+				WHERE  id = ?";
+		
+		$params = [];
+		$params[] = $id;
+
+ 
+
+		$order = $db->queryOne($sql, $params);
+
+		$order['orderLines'] = OrderModel::getOrderLinesByOrderId($id);
+
+		return $order;
 	}
+
+	public static function getOrderLinesByOrderId($orderId) {
+
+		$db = new Database();
+
+		$sql = "
+				SELECT *
+				FROM `order_line` 
+				JOIN product ON product.id = order_line.product_id
+				WHERE  order_id = ?";
+
+		$params = [];
+		$params[] = $orderId;
+
+		$orderLines = $db->query($sql, $params);
+
+		return $orderLines;
+	}
+
+
+	public static function updateStatus($orderId) {
+
+		$db = new Database();
+
+		$sql = "UPDATE `order` SET status ='paid' WHERE`id` = ?" ;
+
+		$data = [];
+
+		$data[] = $orderId;
+
+		$db->executeSql($sql, $data);
+
+
+
+
+	}
+
+
 
 }

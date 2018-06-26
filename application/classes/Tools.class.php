@@ -17,4 +17,13 @@ class Tools {
 	public static function getPrettyPrice($price) {
 		return number_format($price, 2, ',', ' ') . "€ TTC";
 	}
+
+	public static function getPriceEur($price) {
+		return number_format($price, 2, ',', ' ') . "€";
+	}
+
+
+
+
+
 }
