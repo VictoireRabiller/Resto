@@ -54,7 +54,7 @@
 .generic-form select:focus,
 .generic-form textarea:focus
 {
-    background-color: /*#D0FFFF*/#d2b3b1;
+    background-color: /*#D0FFFF*/#DFF2FF;
 }
 .generic-form > ul:last-child
 {

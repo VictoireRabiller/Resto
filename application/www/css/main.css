@@ -21,7 +21,7 @@ a:hover
 body
 {
     /* structure */
-    border-top: 1.5em solid #846361;
+    border-top: 1.5em solid #03224C;
     padding: 1em 5em;
 
     /* presentation */
@@ -36,7 +36,7 @@ fieldset
     padding-right: 1em;
 
     /* presentation */
-    border-color: #846361;
+    border-color: #03224C;
     border-radius: 6px;
 }
 fieldset legend
@@ -45,7 +45,7 @@ fieldset legend
     padding: 0 0.5em;
 
     /* presentation */
-    color: #846361;
+    color: #03224C;
     font-weight: bold;
 }
 
@@ -74,7 +74,7 @@ h1
 h1 a,
 h1 a:hover
 {
-    color: /*inherit*/black;
+    color: /*inherit*/#03224C;
 }
 h1 img
 {
@@ -88,15 +88,18 @@ h2
     margin: 1.5em 0;
 
     /* presentation */
-    color: /*#1E593B*/black;
+    color: /*#1E593B*/#03224C;
 }
 
 html
 {
-    background: url('../images/background.png') repeat;
+    background: url('../images/background.jpeg') repeat;
     overflow-y: scroll;
 }
-
+main{
+     background-color: rgba(255,255,255,0.5);
+     padding: 1rem;
+}
 
 /*
  * Classes génériques
@@ -172,9 +175,10 @@ html
 .meal-list img
 {
     border-radius: 4px;
-    opacity: 0.8;
+    opacity: 0.9;
     transition: opacity 0.25s;
     vertical-align: middle;
+    width: 175px;
 }
 .meal-list img + em
 {
@@ -188,6 +192,7 @@ html
 {
     opacity: 1;
 }
+
 
 /*
  * CSS de la page d'accueil
@@ -226,9 +231,9 @@ html
     padding: 0.75em;
 
     /* presentation */
-    background-color: /*#D0FFFF*/ #c6b1b0;;
+    background-color: /*#D0FFFF*/ #DFF2FF;
     border-radius: 4px;
-    border: 1px solid #846361;
+    border: 1px solid #03224C;
 }
 .meal-details:after
 {
@@ -261,9 +266,9 @@ html
     padding: 0 1em;
 
     /* presentation */
-    background-color: /*#D0FFFF*/#c6b1b0;;
+    background-color: /*#D0FFFF*/#DFF2FF;
     border-radius: 4px;
-    border: 1px solid #846361;
+    border: 1px solid #03224C;
 }
 .invoice .city
 {

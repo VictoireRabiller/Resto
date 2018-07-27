@@ -9,10 +9,10 @@
 .generic-table caption
 {
     /* structure */
-    margin: 2em 0;
+    margin: 1em 0;
 
     /* presentation */
-    color: #846361;
+    color: #64d1ef;
     font-family: 'Oleo Script Swash Caps', cursive;
     font-size: 2em;
 }
@@ -55,6 +55,6 @@
 }
 .generic-table tr:not(.small-notice):hover td
 {
-    background-color:/*#846361*/#b38583;
+    background-color:/*#846361*/#64d1ef;
     color: white;
 }

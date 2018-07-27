@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="<?= $wwwUrl ?>/css/font-awesome-4.3.0.min.css">
 
     <!-- Feuilles de styles de l'application -->
-    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/3wa-resto.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/main.css">
     <link rel="stylesheet" href="<?= $wwwUrl ?>/css/ui-button.css">
     <link rel="stylesheet" href="<?= $wwwUrl ?>/css/ui-form.css">
     <link rel="stylesheet" href="<?= $wwwUrl ?>/css/ui-table.css">
@@ -26,7 +26,7 @@
 <header>
     <h1>
         <a href="<?= $requestUrl ?>">
-            <!-- <img src="<?= $wwwUrl ?>/images/logo.gif" height="63" width="57" alt="3WA Restaurant"> -->Restaurant - Made In America !
+            <!-- <img src="<?= $wwwUrl ?>/images/logo.gif" height="63" width="57" alt="3WA Restaurant"> --> Vic's Restaurant
         </a>
     </h1>
 
@@ -39,7 +39,6 @@
             <?php
                 $user = UserSession::getUser();
             ?>
-            <li><a class="button button-primary" href="<?= $requestUrl ?>/booking">Réserver</a></li>
             <li><a class="button button-primary" href="<?= $requestUrl ?>/order">Commander</a></li>
             <li class="layout-right">
                 <p class="welcome"><strong>Bonjour <?= $user['firstname'] ." ". $user['lastname'] ?> </strong></p> 
@@ -72,15 +71,15 @@
         <li><img src="<?= $wwwUrl ?>/images/payment/mastercard.png" alt="MasterCard"></li>
         <li><img src="<?= $wwwUrl ?>/images/payment/paypal.png" alt="PayPal"></li>
     </ul>
-    <small>Réalisé avec <i class="fa fa-heart"></i>&nbsp; par les élèves de la 3W Academy</small>
+   
 </footer>
 
 <!-- Code principal JavaScript de l'application -->
 <script src="<?= $wwwUrl ?>/js/main.js"></script>
 <div>
-<?php
-Tools::pre($_SESSION);
-?>
+<!--<?php
+//Tools::pre($_SESSION);
+?>-->
 </div>
 </body>
 </html>

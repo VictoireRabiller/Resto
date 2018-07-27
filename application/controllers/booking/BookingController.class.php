@@ -2,32 +2,41 @@
 
 class BookingController
 {
-    public function httpGetMethod(Http $http, array $queryFields)
+    public function httpGetMethod(Http $http)
     {
-        // die('hello');
-        
-    	/*
-    	 * Méthode appelée en cas de requête HTTP GET
-    	 *
-    	 * L'argument $http est un objet permettant de faire des redirections etc.
-    	 * L'argument $queryFields contient l'équivalent de $_GET en PHP natif.
-    	 */
+        $user = new UserSession();
+        if($user->isConnected() == false)
+        {
+            // pour etre connecté au moment résa 
+            $http->redirectTo('login');
+        }
     }
 
     public function httpPostMethod(Http $http, array $formFields)
     {
-
- 
-
-    	
-      
+        $user = new UserSession();
         
+        if($user->isConnected() == false)
+        {
+            // pour etre connecté au moment résa 
+            $http->redirectTo('login');
+        }
 
+        // Récupération du compte client 
+        $user_id = $user->getUser();
 
-       	 /* Méthode appelée en cas de requête HTTP POST
-    	 *
-    	 * L'argument $http est un objet permettant de faire des redirections etc.
-    	 * L'argument $formFields contient l'équivalent de $_POST en PHP natif.
-    	 */
+        $bookingModel = new BookingModel();
+        $bookingModel->create
+        (
+            $user_id,
+            $formFields['bookingYear'].'-'.
+            $formFields['bookingMonth'].'-'.
+            $formFields['bookingDay'],
+            $formFields['bookingHour'].':'.
+            $formFields['bookingMinute'],
+            $formFields['seat_number']
+        );
+
+        $http->redirectTo('');
     }
 }
